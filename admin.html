@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Gamified Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <section class="login-section" id="loginSection">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1>Admin Dashboard</h1>
+                    <p>Gamified Marketing Management</p>
+                </div>
+                
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="adminEmail">Email Address</label>
+                        <input type="email" id="adminEmail" name="email" required placeholder="admin@example.com">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <input type="password" id="adminPassword" name="password" required placeholder="Enter password">
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+                    
+                    <button type="submit" class="login-button" id="loginButton">
+                        <span class="button-text">Sign In</span>
+                        <span class="button-loader" style="display: none;">Signing in...</span>
+                    </button>
+                    
+                    <div class="login-error" id="loginError" style="display: none;"></div>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Demo Credentials: admin@example.com / adminPass</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section" id="dashboardSection" style="display: none;">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>Admin Dashboard</h1>
+                    <p>Manage game results and customer data</p>
+                </div>
+                <div class="header-right">
+                    <button class="header-button" id="refreshButton">🔄 Refresh</button>
+                    <button class="header-button" id="backupButton">💾 Backup</button>
+                    <button class="header-button logout-button" id="logoutButton">🚪 Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Statistics Cards -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">🎮</div>
+                    <div class="stat-content">
+                        <h3 id="totalPlaysCount">0</h3>
+                        <p>Total Plays</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-content">
+                        <h3 id="totalWinsCount">0</h3>
+                        <p>Total Wins</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <h3 id="totalClaimedCount">0</h3>
+                        <p>Claimed Rewards</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3 id="winRatePercent">0%</h3>
+                        <p>Win Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <h2>Filter Results</h2>
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="gameFilter">Game Type</label>
+                        <select id="gameFilter" name="game">
+                            <option value="">All Games</option>
+                            <option value="Spin & Win">Spin & Win</option>
+                            <option value="Scratch & Win">Scratch & Win</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="statusFilter">Claim Status</label>
+                        <select id="statusFilter" name="status">
+                            <option value="">All Status</option>
+                            <option value="claimed">Claimed</option>
+                            <option value="unclaimed">Not Claimed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="rewardFilter">Reward Type</label>
+                        <input type="text" id="rewardFilter" name="reward" placeholder="Search rewards...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="dateFromFilter">Date From</label>
+                        <input type="date" id="dateFromFilter" name="dateFrom">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="dateToFilter">Date To</label>
+                        <input type="date" id="dateToFilter" name="dateTo">
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="filter-button apply-button" id="applyFiltersButton">Apply Filters</button>
+                        <button class="filter-button clear-button" id="clearFiltersButton">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Management Section -->
+        <section class="data-section">
+            <div class="data-container">
+                <div class="data-header">
+                    <h2>Game Results Management</h2>
+                    <div class="data-actions">
+                        <button class="action-button export-button" id="exportCsvButton">📥 Export CSV</button>
+                        <button class="action-button clear-data-button" id="clearDataButton">🗑️ Clear All Data</button>
+                    </div>
+                </div>
+                
+                <!-- Results Table -->
+                <div class="table-container">
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>WhatsApp</th>
+                                <th>Game</th>
+                                <th>Reward</th>
+                                <th>Code</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTableBody">
+                            <!-- Dynamic content will be inserted here -->
+                        </tbody>
+                    </table>
+                    
+                    <div class="table-empty" id="tableEmpty" style="display: none;">
+                        <div class="empty-icon">📊</div>
+                        <h3>No Results Found</h3>
+                        <p>No game results match your current filters.</p>
+                    </div>
+                    
+                    <div class="table-loading" id="tableLoading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Loading results...</p>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination-container" id="paginationContainer" style="display: none;">
+                    <div class="pagination-info">
+                        <span id="paginationInfo">Showing 0 of 0 results</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-button" id="prevPageButton" disabled>← Previous</button>
+                        <span class="pagination-pages" id="paginationPages"></span>
+                        <button class="pagination-button" id="nextPageButton" disabled>Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Settings Section (Future Enhancement) -->
+        <section class="settings-section" style="display: none;">
+            <div class="settings-container">
+                <h2>Game Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Spin & Win Configuration</h3>
+                        <div class="reward-slots">
+                            <!-- Dynamic reward slot configuration -->
+                        </div>
+                    </div>
+                    
+                    <div class="setting-card">
+                        <h3>Scratch & Win Configuration</h3>
+                        <div class="reward-slots">
+                            <!-- Dynamic reward slot configuration -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="modalOverlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Confirm Action</h3>
+                <button class="modal-close" id="modalClose">×</button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button cancel-button" id="modalCancel">Cancel</button>
+                <button class="modal-button confirm-button" id="modalConfirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/utility.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

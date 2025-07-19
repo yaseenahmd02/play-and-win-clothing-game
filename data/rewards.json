@@ -1,0 +1,157 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2024-01-01T00:00:00Z",
+  "gameSettings": {
+    "spinGame": {
+      "name": "Spin & Win",
+      "enabled": true,
+      "description": "Spin the wheel for amazing rewards!",
+      "rewards": [
+        {
+          "id": "spin_10_off",
+          "text": "10% Off",
+          "probability": 0.25,
+          "color": "#ff6b6b",
+          "description": "Get 10% discount on your next purchase"
+        },
+        {
+          "id": "spin_20_off",
+          "text": "20% Off",
+          "probability": 0.15,
+          "color": "#4ecdc4",
+          "description": "Get 20% discount on your next purchase"
+        },
+        {
+          "id": "spin_free_milk",
+          "text": "Free Avil Milk",
+          "probability": 0.10,
+          "color": "#45b7d1",
+          "description": "Get a free Avil Milk with any purchase"
+        },
+        {
+          "id": "spin_5_off",
+          "text": "5% Off",
+          "probability": 0.20,
+          "color": "#f9ca24",
+          "description": "Get 5% discount on your next purchase"
+        },
+        {
+          "id": "spin_no_win",
+          "text": "No Win",
+          "probability": 0.25,
+          "color": "#6c5ce7",
+          "description": "Better luck next time!"
+        },
+        {
+          "id": "spin_15_off",
+          "text": "15% Off",
+          "probability": 0.05,
+          "color": "#a29bfe",
+          "description": "Get 15% discount on your next purchase"
+        }
+      ]
+    },
+    "scratchGame": {
+      "name": "Scratch & Win",
+      "enabled": true,
+      "description": "Scratch to reveal your prize!",
+      "rewards": [
+        {
+          "id": "scratch_10_off",
+          "text": "10% Off",
+          "probability": 0.20,
+          "color": "#27ae60",
+          "description": "Get 10% discount on your next purchase"
+        },
+        {
+          "id": "scratch_20_off",
+          "text": "20% Off",
+          "probability": 0.10,
+          "color": "#2ecc71",
+          "description": "Get 20% discount on your next purchase"
+        },
+        {
+          "id": "scratch_free_milk",
+          "text": "Free Avil Milk",
+          "probability": 0.15,
+          "color": "#3498db",
+          "description": "Get a free Avil Milk with any purchase"
+        },
+        {
+          "id": "scratch_5_off",
+          "text": "5% Off",
+          "probability": 0.25,
+          "color": "#f39c12",
+          "description": "Get 5% discount on your next purchase"
+        },
+        {
+          "id": "scratch_no_win",
+          "text": "No Win",
+          "probability": 0.25,
+          "color": "#95a5a6",
+          "description": "Better luck next time!"
+        },
+        {
+          "id": "scratch_15_off",
+          "text": "15% Off",
+          "probability": 0.05,
+          "color": "#9b59b6",
+          "description": "Get 15% discount on your next purchase"
+        }
+      ]
+    }
+  },
+  "globalSettings": {
+    "maxPlaysPerUser": 1,
+    "cooldownPeriod": 86400000,
+    "requireWhatsApp": true,
+    "requireName": true,
+    "enableAnalytics": true,
+    "whatsappNumber": "+1234567890",
+    "storeInfo": {
+      "name": "Your Clothing Store",
+      "address": "123 Fashion Street, Style City",
+      "hours": "Mon-Sat: 9AM-9PM, Sun: 10AM-6PM",
+      "googleBusinessId": "YOUR_GOOGLE_BUSINESS_ID",
+      "instagramHandle": "yourstore",
+      "websiteUrl": "https://yourstore.com"
+    }
+  },
+  "messages": {
+    "welcomeMessage": "Play & Win – Get Rewards While You Shop!",
+    "winMessage": "🎉 You won {reward}! Show this code at the store: {code}",
+    "noWinMessage": "😔 Better luck next time!",
+    "whatsappMessage": "Hi, I played your game and won {reward}. My code is {code}",
+    "thankYouMessage": "Thank you for playing! Don't forget to follow us on social media.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "formValidation": {
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must be at least 2 characters long",
+      "whatsappRequired": "WhatsApp number is required",
+      "whatsappInvalid": "Please enter a valid WhatsApp number"
+    }
+  },
+  "socialLinks": {
+    "googleReview": "https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review",
+    "instagram": "https://instagram.com/yourstore",
+    "whatsapp": "https://wa.me/YOUR_WHATSAPP_NUMBER",
+    "facebook": "https://facebook.com/yourstore",
+    "website": "https://yourstore.com"
+  },
+  "styling": {
+    "primaryColor": "#2563eb",
+    "secondaryColor": "#1e40af",
+    "accentColor": "#f59e0b",
+    "successColor": "#10b981",
+    "dangerColor": "#ef4444",
+    "fontFamily": "Poppins, sans-serif",
+    "logoUrl": "https://i.postimg.cc/6p6wQxPH/loot.jpg"
+  },
+  "analytics": {
+    "trackPageViews": true,
+    "trackGamePlays": true,
+    "trackFormSubmissions": true,
+    "trackSocialClicks": true,
+    "trackErrors": true
+  }
+}
